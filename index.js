@@ -44,7 +44,11 @@ app.get('/auth/vk/callback',
 
 app.get('/', (req, res) => {
     if(req.user){
-        res.send('Hello');
+        let str = '';
+        for(let i = 0; i < 5; i++){
+            str += Math.round(Math.random() * 100) + '; ';
+        }
+        res.send('Hello ' + req.user.displayName + ' ' + str);
     }
     else{
         res.send('hello stranger');
